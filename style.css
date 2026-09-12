@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+  --ink: #17233c;
+  --muted: #71809c;
+  --surface: #ffffff;
+  --canvas: #eef4fb;
+  --line: #dfe8f4;
+  --cyan: #21b7c9;
+  --cyan-dark: #087f9a;
+  --coral: #f06d69;
+  --shadow: 0 22px 55px rgba(30, 61, 105, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  min-height: 100vh;
+  background: radial-gradient(circle at 8% 8%, #d7f7f5 0, transparent 27%),
+    radial-gradient(circle at 92% 80%, #ffe3dc 0, transparent 23%),
+    var(--canvas);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.86) !important;
+  border-bottom: 1px solid rgba(223, 232, 244, 0.9);
+  box-shadow: 0 8px 25px rgba(30, 61, 105, 0.06);
+  padding: 18px 5%;
+}
+
+.navbar-brand {
+  color: var(--ink) !important;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.nav-link {
+  color: var(--muted) !important;
+  font-weight: 500;
+  margin-left: 12px;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: var(--cyan-dark) !important;
+}
+
+.form-control {
+  border-color: var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.btn-outline-success {
+  border-color: var(--cyan);
+  color: var(--cyan-dark);
+  border-radius: 10px;
+}
+
+.btn-outline-success:hover {
+  background: var(--cyan);
+  border-color: var(--cyan);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 64px 20px 80px;
+}
+
+.shopping-card-container {
+  width: min(1120px, 100%);
+  padding: 38px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.total-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 6px 26px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.total {
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem) !important;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-transform: none;
+}
+
+.list-products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.list-products > .card-body {
+  display: block;
+  min-width: 0;
+}
+
+.card {
+  width: 100% !important;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(30, 61, 105, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 35px rgba(30, 61, 105, 0.15);
+}
+
+.card-img-top {
+  display: block;
+  height: 210px;
+  object-fit: contain;
+  padding: 24px;
+  background: linear-gradient(135deg, #dff8f7, #e9efff);
+}
+
+.card > .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 22px;
+}
+
+.card-title {
+  margin-bottom: 5px;
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.card-text {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.unit-price {
+  margin: 0;
+  color: var(--cyan-dark);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.35rem;
+}
+
+.card > .card-body > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+i {
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 26px;
+  margin: 0 9px;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+i:hover {
+  color: var(--cyan-dark);
+  transform: scale(1.1);
+}
+
+.quantity {
+  min-width: 34px;
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.fa-trash-alt {
+  color: var(--coral);
+}
+
+.fa-trash-alt:hover,
+.fa-heart.liked {
+  color: #df454f;
+}
+
+@media (max-width: 800px) {
+  .shopping-card-container {
+    padding: 24px 18px;
+  }
+
+  .list-products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  main {
+    padding: 30px 12px 50px;
+  }
+
+  .list-products {
+    grid-template-columns: 1fr;
+  }
+
+  .total-price {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
